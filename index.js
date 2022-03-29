@@ -1,29 +1,43 @@
 const cars = document.querySelector('.cars');
-//const colours = document.querySelector('.colours');
+const colors = document.querySelector('.colors');
+const carbrands = document.querySelector('.carbrands');
 
 
-axios
-    .get("https://api-tutor.herokuapp.com/v1/cars")
+//axios
+    //.get("https://api-tutor.herokuapp.com/v1/cars")
+    //.then(function (result) {
+        //result.data.forEach(car => {
+           // const li = document.createElement('tr');
+           // li.innerHTML = `<tr>
+        //<td>${car.reg_number}<strong></strong></td></tr>`
+           // cars.appendChild(li);
+
+        //});
+
+    //});
+
+    axios
+    .get("http://api-tutor.herokuapp.com/v1/colors")
     .then(function (result) {
-        result.data.forEach(car => {
+        result.data.forEach(color => {
             const li = document.createElement('tr');
             li.innerHTML = `<tr>
-        <td>${car.model}<strong></strong></td></tr>`
-            cars.appendChild(li);
+        <td>${color}<strong></strong></td></tr>`
+            colors.appendChild(li);
 
         });
 
     });
 
-    //axios
-    //.get("http://api-tutor.herokuapp.com/v1/colors")
-    //.then(function (result) {
-    //    result.data.forEach(car => {
-            //const li = document.createElement('tr');
-           // li.innerHTML = `<tr>
-       // <td>${car}<strong></strong></td></tr>`
-          //  cars.appendChild(li);
+    axios
+    .get("http://api-tutor.herokuapp.com/v1/makes")
+    .then(function (result) {
+        result.data.forEach(carbrand => {
+            const li = document.createElement('tr');
+            li.innerHTML = `<tr>
+        <td>${carbrand}<strong></strong></td></tr>`
+            carbrands.appendChild(li);
 
-       // });
+        });
 
-    //});
+    });
