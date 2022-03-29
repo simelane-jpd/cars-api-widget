@@ -1,5 +1,5 @@
 const cars = document.querySelector('.cars');
-const colours = document.querySelector('.colours');
+//const colours = document.querySelector('.colours');
 
 
 axios
