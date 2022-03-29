@@ -1,4 +1,4 @@
-const cars = document.querySelector('.cars');
+//const cars = document.querySelector('.cars');
 const colors = document.querySelector('.colors');
 const carbrands = document.querySelector('.carbrands');
 
@@ -17,7 +17,7 @@ const carbrands = document.querySelector('.carbrands');
     //});
 
     axios
-    .get("http://api-tutor.herokuapp.com/v1/colors")
+    .get("https://api-tutor.herokuapp.com/v1/colors")
     .then(function (result) {
         result.data.forEach(color => {
             const li = document.createElement('tr');
@@ -30,7 +30,7 @@ const carbrands = document.querySelector('.carbrands');
     });
 
     axios
-    .get("http://api-tutor.herokuapp.com/v1/makes")
+    .get("https://api-tutor.herokuapp.com/v1/makes")
     .then(function (result) {
         result.data.forEach(carbrand => {
             const li = document.createElement('tr');
