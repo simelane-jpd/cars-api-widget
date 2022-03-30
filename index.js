@@ -1,6 +1,10 @@
 const cars = document.querySelector('.cars');
 const colors = document.querySelector('.colors');
 const carbrands = document.querySelector('.carbrands');
+const display = document.querySelector('.display');
+const car_brands = document.querySelector('.car_brands');
+const car_colors = document.querySelector('.car_colors');
+const carsdisplayed = document.querySelector('.carsdisplayed');
 
 
 axios
@@ -46,3 +50,51 @@ axios
         });
 
     });
+
+    function filtercars() {
+       
+        const carbrands = document.getElementById("carbrands").value;
+        const colors = document.getElementById("colors").value;
+        if (carbrands && colors) {
+
+    axios
+    .get("https://api-tutor.herokuapp.com/v1/cars/make/:make/color/:car_color")
+    .then(function (result) {
+        result.data.forEach(car => {
+            const li = document.createElement('tr');
+            li.innerHTML = `<tr>
+        <td>${car.make},
+        ${car.color}
+       
+       </td></tr>`
+            carsdisplayed.appendChild(li);
+
+        });
+
+    });
+}
+    }
+display.addEventListener('click',filtercars)
+            
+
+
+//function filtercars() {
+//axios
+   // .get("https://api-tutor.herokuapp.com/v1/cars/make/:make/color/:car_color")
+    //.then(function (result) {
+       // result.data.forEach(car => {
+          //  const li = document.createElement('tr');
+           // li.innerHTML = `<tr>
+       // <td>${car.make}
+        
+        
+        //${car.color}
+       
+      // </td></tr>`
+            //cars.appendChild(li);
+
+       // });
+
+    //});
+//}
+   // display.addEventListener('click',filtercars)
