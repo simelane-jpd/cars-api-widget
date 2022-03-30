@@ -58,7 +58,7 @@ axios
         if (carbrands && colors) {
 
     axios
-    .get("https://api-tutor.herokuapp.com/v1/cars/make/:make/color/:car_color")
+    .get("https://api-tutor.herokuapp.com/v1/cars/make/${carbrands}/color/${colors}")
     .then(function (result) {
         result.data.forEach(car => {
             const li = document.createElement('tr');
@@ -67,6 +67,54 @@ axios
         ${car.color}
        
        </td></tr>`
+            carsdisplayed.appendChild(li);
+
+        });
+
+    });
+}
+else if(carbrands){
+    axios
+    .get("https://api-tutor.herokuapp.com/v1/makes/${carbrands}")
+    .then(function (result) {
+        result.data.forEach(carbrand => {
+            const li = document.createElement('tr');
+            li.innerHTML = `<tr>
+        <td>${carbrand}</td></tr>`
+            carsdisplayed.appendChild(li);
+
+        });
+
+    });
+}
+else if (colors){
+    axios
+    .get("https://api-tutor.herokuapp.com/v1/color/${colors}")
+    .then(function (result) {
+        result.data.forEach(color => {
+            const li = document.createElement('tr');
+            li.innerHTML = `<tr>
+        <td>${color}</td></tr>`
+            carsdisplayed.appendChild(li);
+
+        });
+
+    });
+
+}
+else {
+    axios
+    .get("https://api-tutor.herokuapp.com/v1/cars")
+    .then(function (result) {
+        result.data.forEach(car => {
+            const li = document.createElement('tr');
+            li.innerHTML = `<tr>
+        <td>${car.make},
+        
+        ${car.model},
+        ${car.color},
+        ${car.price},
+        ${car.reg_number}</td></tr>`
             carsdisplayed.appendChild(li);
 
         });
