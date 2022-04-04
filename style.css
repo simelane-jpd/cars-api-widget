@@ -1,6 +1,17 @@
 body {
     background-color: #e5d1d0;
+    font-family:cursive;
+    text-align:justify;
 }
 h1 {
-    color:#011627 ;
+    color:green;
+}
+
+table, th, td {
+    border: 1px solid black;
+    
+    
+  }
+h2 {
+    color:green;
 }

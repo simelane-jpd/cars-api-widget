@@ -10,22 +10,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
     <script type="text" class="data"> {{#each info}}<li>{{this}}</li>{{/each}}</script>
-    <script type="text"
-        class="allthecars">{{#each car}}<li>{{this.make}}, {{this.model}}, {{this.color}}, {{this.price}}, {{this.reg_number}}</li>{{/each}} </script>
+    <script type="text" class="allthecars">
+        <div class="center">
+            <table class="table" >
+                <tr>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Color</th>
+                    <th>Price</th>
+                    <th>Registration Number</th>
+                </tr>
+                {{#each car}}
+                <tr>
+                    <td>{{this.make}}</td>
+                    <td>{{this.model}}</td>
+                    <td>{{this.color}}</td>
+                    <td> {{this.price}}</td>
+                    <td>{{this.reg_number}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+    </script>
 
 </head>
 
 <body>
     <div class="container">
+
         <h1>Car API Widget</h1>
-        <h2>Cars</h2>
-        <div class="cars"></div>
-        <h2>Brands</h2>
-        <div class="carbrands"></div>
-        <h2>Colors</h2>
-        <div class="colors"></div>
-
-
         <h1>Filter Widget</h1>
 
         <div class="dropdown">
@@ -49,6 +62,17 @@
 
             <button class="display">display</button>
         </div>
+
+        
+        <h2>Cars</h2>
+        <div class="cars"></div>
+        <h2>Brands</h2>
+        <div class="carbrands"></div>
+        <h2>Colors</h2>
+        <div class="colors"></div>
+
+
+        
 
     </div>
 </body>
